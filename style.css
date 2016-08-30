@@ -1,0 +1,27 @@
+body {
+  background-image: url("img/shopkin-background.jpg");
+  background-size: cover;
+}
+
+p {
+  font-family: 'Butterfly Kids', cursive;
+  font-size: 40px;
+  text-align: center;
+  font-weight: 800;
+  color: fuchsia;
+}
+
+th, td {
+    border: 1px solid fuchsia;
+    width: 120px;
+    height: 120px;
+}
+
+table {
+    border: 2px solid fuchsia;
+    margin: 0 auto;
+}
+
+td {
+  background-size: cover; 
+}
