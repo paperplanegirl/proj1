@@ -5,31 +5,157 @@
     <title>Shopkins Memory Game</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Butterfly+Kids" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
   </head>
   <body>
     <p>Shopkins Shopping Cart Game</p>
 
-    <table>
-      <div tr="grid">
-        <td id='b0'></td>
-        <td id='b1'></td>
-        <td id='b2'></td>
-        <td id='b3'></td>
-      </tr>
-      <div tr="grid">
-        <td id='b4'></td>
-        <td id='b5'></td>
-        <td id='b6'></td>
-        <td id='b7'></td>
-      </tr>
-      <div tr="grid">
-        <td id='b8'></td>
-        <td id='b9'></td>
-        <td id='b10'></td>
-        <td id='b11'></td>
-      </tr>
-    </table>
+  <table>
+    <tr class="row">
+      <div class="card">
+        <td id="cell-1-1">
+          <div class="front">
+            </div>
+          <div class="back">
+            <img class="card" src="img/AA.jpg">
+          </div>
+      </div>
+    </td>
+
+
+      <div class="card">
+        <td id="cell-1-2">
+          <div class="front">
+            </div>
+          <div class="back">
+            <img src="img/BB.jpg">
+          </div>
+        </div>
+      </td>
+
+    <div class="card">
+      <td id="cell-1-3">
+        <div class="front">
+          </div>
+        <div class="back">
+          <img src="img/CC.jpg">
+        </div>
+      </div>
+    </td>
+
+    <div class="card">
+      <td id="cell-1-4">
+        <div class="front">
+          </div>
+        <div class="back">
+          <img src="img/DD.jpg">
+        </div>
+      </div>
+    </td>
+  </tr>
+
+  <tr class="row">
+    <div class="card">
+      <td id="cell-2-1">
+        <div class="front">
+          </div>
+        <div class="back">
+          <img src="img/EE.jpg">
+        </div>
+      </div>
+    </td>
+
+    <div class="card">
+      <td id="cell-2-2">
+        <div class="front">
+          </div>
+        <div class="back">
+          <img src="img/FF.jpg">
+        </div>
+      </div>
+    </td>
+
+  <div class="card">
+    <td id="cell-2-3">
+      <div class="front">
+        </div>
+      <div class="back">
+        <img src="img/AA.jpg">
+      </div>
+    </div>
+  </td>
+
+  <div class="card">
+    <td id="cell-2-4">
+      <div class="front">
+        </div>
+      <div class="back">
+        <img src="img/BB.jpg">
+      </div>
+    </div>
+  </td>
+  </tr>
+
+  <tr class="row">
+    <div class="card">
+      <td id="cell-3-1">
+        <div class="front">
+          </div>
+        <div class="back">
+          <img src="img/CC.jpg">
+        </div>
+      </div>
+    </td>
+
+    <div class="card">
+      <td id="cell-3-2">
+        <div class="front">
+          </div>
+        <div class="back">
+          <img src="img/DD.jpg">
+        </div>
+      </div>
+    </td>
+
+  <div class="card">
+    <td id="cell-3-3">
+      <div class="front">
+        </div>
+      <div class="back">
+        <img src="img/EE.jpg">
+      </div>
+    </div>
+  </td>
+
+  <div class="card">
+    <td id="cell-3-4">
+      <div class="front">
+        </div>
+      <div class="back">
+        <img src="img/FF.jpg">
+      </div>
+    </div>
+  </td>
+  </tr>
+</table>
+
+
     <div id="hms">00:00:60</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   </body>
   <script type="text/javascript" src="script.js"></script>

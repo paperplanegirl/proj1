@@ -1,56 +1,110 @@
 var imgArray = ['AA.jpg', 'AA.jpg', 'BB.jpg', 'BB.jpg', 'CC.jpg', 'CC.jpg', 'DD.jpg', 'DD.jpg', 'EE.jpg', 'EE.jpg', 'FF.jpg', 'FF.jpg'];
-var numChosenCards = 0
 
-function clicks(index) {
-  if (numChosenCards == 0)
-  {
-  //The first click will be the first image chosen
-  one = index;
-  //The image source is from the array
-  document.images[index].src = imgArray(index);
-  // now
-  numChosenCards = 1;
-}
-else
-{
-  numChosenCards = 2;
-  //The second click will be the second image
-  two = index;
-  document.images[index].src = imgArray[index];
+
+document.getElementById("cell-1-1").onclick = click;
+document.getElementById("cell-1-2").onclick = click;
+document.getElementById("cell-1-3").onclick = click;
+document.getElementById("cell-1-4").onclick = click;
+document.getElementById("cell-2-1").onclick = click;
+document.getElementById("cell-2-2").onclick = click;
+document.getElementById("cell-2-3").onclick = click;
+document.getElementById("cell-2-4").onclick = click;
+document.getElementById("cell-3-1").onclick = click;
+document.getElementById("cell-3-2").onclick = click;
+document.getElementById("cell-3-3").onclick = click;
+document.getElementById("cell-3-4").onclick = click;
+
+var numChosenCards = 0
+var tempArray = []
+
+function click() {
+  var index = this.id
+  if (numChosenCards == 0) {
+    //The first click will be the first image chosen
+    tempArray.push(imgArray[index])
+    console.log(tempArray);
+    numChosenCards = 1;
+  }
+  else if (numChosenCards == 1) {
+    tempArray.push(imgArray[index])
+    console.log(tempArray);
   }
 }
+//
+// function checkWin() {
+//
+// var b0 = document.getElementById("0");
+// var b1 = document.getElementById("1");
+// var b2 = document.getElementById("2");
+// var b3 = document.getElementById("3");
+// var b4 = document.getElementById("4");
+// var b5 = document.getElementById("5");
+// var b6 = document.getElementById("6");
+// var b7 = document.getElementById("7");
+// var b8 = document.getElementById("8");
+// var b9 = document.getElementById("9");
+// var b10 = document.getElementById("10");
+// var b11 = document.getElementById("11");
+//
+// if (b0.innerHTML === "img/AA.jpg" && b6.innerHTML === "img/AA.jpg") {
+  // document.getElementById("1").style.backgroundImage = "url('img/BB.jpg')"
+  // document.getElementById("2").style.backgroundImage = "url('img/CC.jpg')"
+  // document.getElementById("3").style.backgroundImage = "url('img/DD.jpg')"
+  // document.getElementById("4").style.backgroundImage = "url('img/EE.jpg')"
+  // document.getElementById("5").style.backgroundImage = "url('img/FF.jpg')"
+  // document.getElementById("6").style.backgroundImage = "url('img/AA.jpg')"
+  // document.getElementById("7").style.backgroundImage = "url('img/BB.jpg')"
+  // document.getElementById("8").style.backgroundImage = "url('img/CC.jpg')"
+  // document.getElementById("9").style.backgroundImage = "url('img/DD.jpg')"
+  // document.getElementById("10").style.backgroundImage = "url('img/EE.jpg')"
+  // document.getElementById("11").style.backgroundImage = "url('img/FF.jpg')"
 
-function control() {
-  stopTimer();
-  if (imgArray[one] == imgArray[two])
+
+
+  if (imgArray[0] == imgArray[1]) {
+    //then the cards will remain
+  }
+  else if (imgArray[0] != imgArray[1])
+  { //then the cards will flip
+  }
 }
-  hit ++;
-  numChosenCards = 0;
-}
-else if (imgArray[one] != imgArray[two])
-(
-  //IF
-  document.images[one].src = back;
-  document.images[two].src = back;
-  numChosenCards = 0;
-)
-
-if (hit == imgArray.length/2) {
-  document.getElementById("win").textContent = "You've completed the game - go to the next level"
 }
 
-function checkWins() {
+// SHUFFLE SORT
+// function shuffle() {
+//   imgArray.sort(function(){return 0.5 - Math.random()});
+// }
 
-  var b0 = document.getElementById("b0");
-  var b1 = document.getElementById("b1");
-  var b2 = document.getElementById("b2");
-  var b3 = document.getElementById("b3");
-  var b4 = document.getElementById("b4");
-  var b5 = document.getElementById("b5");
-  var b6 = document.getElementById("b6");
-  var b7 = document.getElementById("b7");
-  var b8 = document.getElementById("b8");
+// function shuffle() {
+//   if (Math.random() < .5) {
+//     return -1;
+//   } else {
+//     return 1;
+//   }
+// };
+// console.log("Random sort:", imgArray);
+//
 
+
+
+// function control() {
+//   stopTimer();
+//   if (imgArray[one] == imgArray[two]) {
+//     hit ++;
+//     numChosenCards = 0;
+//   }
+//   else if (imgArray[one] != imgArray[two])
+//   {
+//     //IF
+//     document.images[one].src = back;
+//     document.images[two].src = back;
+//     numChosenCards = 0;
+//   }
+//
+//   if (hit == imgArray.length/2) {
+//     document.getElementById("win").textContent = "You've completed the game - go to the next level"
+//   }
+// }
 
 // var memoryValues = [];
 // var memory_tile_ids = [];
@@ -80,7 +134,8 @@ function count() {
 
     var startTime = document.getElementById('hms').innerHTML;
     var pieces = startTime.split(":");
-    var time = new Date();    time.setHours(pieces[0]);
+    var time = new Date();
+    time.setHours(pieces[0]);
     time.setMinutes(pieces[1]);
     time.setSeconds(pieces[2]);
     var timedif = new Date(time.valueOf() - 1000);
@@ -88,27 +143,7 @@ function count() {
     document.getElementById('hms').innerHTML=newtime;
     setTimeout(count, 1000);
 }
+
 count();
 
-document.getElementById("b0").style.backgroundImage = "url('img/AA.jpg')"
-document.getElementById("b1").style.backgroundImage = "url('img/BB.jpg')"
-document.getElementById("b2").style.backgroundImage = "url('img/CC.jpg')"
-document.getElementById("b3").style.backgroundImage = "url('img/DD.jpg')"
-document.getElementById("b4").style.backgroundImage = "url('img/EE.jpg')"
-document.getElementById("b5").style.backgroundImage = "url('img/FF.jpg')"
-document.getElementById("b6").style.backgroundImage = "url('img/AA.jpg')"
-document.getElementById("b7").style.backgroundImage = "url('img/BB.jpg')"
-document.getElementById("b8").style.backgroundImage = "url('img/CC.jpg')"
-document.getElementById("b9").style.backgroundImage = "url('img/DD.jpg')"
-document.getElementById("b10").style.backgroundImage = "url('img/EE.jpg')"
-document.getElementById("b11").style.backgroundImage = "url('img/FF.jpg')"
-
-// // SHUFFLE SORT
-// imgArray.sort(function(a, b)) {
-//   if (Math.random() < .5) {
-//     return -1;
-//   } else {
-//     return 1;
-//   }
-// });
-// console.log("Random sort:", imgArray);
+$(".card").flip()
