@@ -67,8 +67,8 @@ function click() {
   else if (imgArray[0] != imgArray[1])
   { //then the cards will flip
   }
-}
-}
+// }
+// }
 
 // SHUFFLE SORT
 // function shuffle() {
