@@ -12,13 +12,28 @@ p {
   color: fuchsia;
 }
 
-th, td {
+.container {
+  margin: 0 auto;
+  width: 520px;
+  height: 410px;
+  background-color: orange;
+}
+
+.cards {
+  width: 120px;
+  height: 120px;
+  display: inline-block;
+  margin: 5px 0 0 5px ;
+}
+
+
+/*th, td {
     border: 1px solid fuchsia;
     width: 120px;
     height: 120px;
-}
+}*/
 
-table {
+/*table {
     border: 3px ridge fuchsia;
     margin: 0 auto;
 }
@@ -59,4 +74,4 @@ div.front {
 
 div.back {
 
-}
+}*/

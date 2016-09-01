@@ -1,24 +1,35 @@
 var imgArray = ['AA.jpg', 'AA.jpg', 'BB.jpg', 'BB.jpg', 'CC.jpg', 'CC.jpg', 'DD.jpg', 'DD.jpg', 'EE.jpg', 'EE.jpg', 'FF.jpg', 'FF.jpg'];
+var gamefinished = false;
 
-
-document.getElementById("cell-1-1").onclick = click;
-document.getElementById("cell-1-2").onclick = click;
-document.getElementById("cell-1-3").onclick = click;
-document.getElementById("cell-1-4").onclick = click;
-document.getElementById("cell-2-1").onclick = click;
-document.getElementById("cell-2-2").onclick = click;
-document.getElementById("cell-2-3").onclick = click;
-document.getElementById("cell-2-4").onclick = click;
-document.getElementById("cell-3-1").onclick = click;
-document.getElementById("cell-3-2").onclick = click;
-document.getElementById("cell-3-3").onclick = click;
-document.getElementById("cell-3-4").onclick = click;
+// document.getElementById("cell-1-1").onclick = click;
+// document.getElementById("cell-1-2").onclick = click;
+// document.getElementById("cell-1-3").onclick = click;
+// document.getElementById("cell-1-4").onclick = click;
+// document.getElementById("cell-2-1").onclick = click;
+// document.getElementById("cell-2-2").onclick = click;
+// document.getElementById("cell-2-3").onclick = click;
+// document.getElementById("cell-2-4").onclick = click;
+// document.getElementById("cell-3-1").onclick = click;
+// document.getElementById("cell-3-2").onclick = click;
+// document.getElementById("apple").onclick = click;
+// document.getElementById("cell-3-4").onclick = click;
 
 var numChosenCards = 0
 var tempArray = []
 
 function click() {
   var index = this.id
+  console.log(index)
+
+//   for (var i = 0; i < imgArray.length; i++) {
+//     if (imgArray[i] === index) {
+//       tempArray.push(imgArray[i]);
+//     }
+//   }
+// }
+
+
+
   if (numChosenCards == 0) {
     //The first click will be the first image chosen
     tempArray.push(imgArray[index])
@@ -26,49 +37,80 @@ function click() {
     numChosenCards = 1;
   }
   else if (numChosenCards == 1) {
-    tempArray.push(imgArray[index])
+    tempArray.push(imgArray)
     console.log(tempArray);
   }
 }
-//
+
+function checkIfMatch() {
+  tempArray = tempArray.sort()
+  tempArray[1] = tempArray[1].split('')[0]
+
+  if (tempArray[0] === tempArray[1]) {
+    console.log('match')
+
+    // don't flip the card back
+    // points++
+  } else {
+    console.log('not a match');
+    // execute function to flip card back
+
+    $("#" + tempArray[0]).flip(false)
+    $("#" + tempArray[1] + tempArray[1]).flip(false)
+  }
+}
+
+
+
+$("div.card").click(function() {
+  tempArray.push(this.id)
+  if (tempArray.length < 2) {
+
+  } else if (tempArray.length === 2) {
+    checkIfMatch()
+    tempArray = []
+  }
+
+  console.log(tempArray);
+})
+
 // function checkWin() {
+// var b0 = document.getElementById("cell-1-1");
+// var b1 = document.getElementById("cell-1-2");
+// var b2 = document.getElementById("cell-1-3");
+// var b3 = document.getElementById("cell-1-4");
+// var b4 = document.getElementById("cell-2-1");
+// var b5 = document.getElementById("cell-2-2");
+// var b6 = document.getElementById("cell-2-3");
+// var b7 = document.getElementById("cell-2-4");
+// var b8 = document.getElementById("cell-3-1");
+// var b9 = document.getElementById("cell-3-2");
+// var b10 = document.getElementById("cell-3-3");
+// var b11 = document.getElementById("cell-3-4");
 //
-// var b0 = document.getElementById("0");
-// var b1 = document.getElementById("1");
-// var b2 = document.getElementById("2");
-// var b3 = document.getElementById("3");
-// var b4 = document.getElementById("4");
-// var b5 = document.getElementById("5");
-// var b6 = document.getElementById("6");
-// var b7 = document.getElementById("7");
-// var b8 = document.getElementById("8");
-// var b9 = document.getElementById("9");
-// var b10 = document.getElementById("10");
-// var b11 = document.getElementById("11");
+// if (b0.innerHTML == imgArray[0]) && b6.innerHTML == imgArray[1]) {
+//   gamefinished=false
+// // } else if
 //
-// if (b0.innerHTML === "img/AA.jpg" && b6.innerHTML === "img/AA.jpg") {
-  // document.getElementById("1").style.backgroundImage = "url('img/BB.jpg')"
-  // document.getElementById("2").style.backgroundImage = "url('img/CC.jpg')"
-  // document.getElementById("3").style.backgroundImage = "url('img/DD.jpg')"
-  // document.getElementById("4").style.backgroundImage = "url('img/EE.jpg')"
-  // document.getElementById("5").style.backgroundImage = "url('img/FF.jpg')"
-  // document.getElementById("6").style.backgroundImage = "url('img/AA.jpg')"
-  // document.getElementById("7").style.backgroundImage = "url('img/BB.jpg')"
-  // document.getElementById("8").style.backgroundImage = "url('img/CC.jpg')"
-  // document.getElementById("9").style.backgroundImage = "url('img/DD.jpg')"
-  // document.getElementById("10").style.backgroundImage = "url('img/EE.jpg')"
-  // document.getElementById("11").style.backgroundImage = "url('img/FF.jpg')"
+// if (b1.innerHTML == imgArray[2]) && b7.innerHTML == imgArray[3]) {
+//   gamefinished=false
+//
+//
+// if (b2.innerHTML == imgArray[4]) && b8.innerHTML == imgArray[5]) {
+//     gamefinished=false
+//
+//
+// if (b3.innerHTML == imgArray[6]) && b9.innerHTML == imgArray[7]) {
+//     gamefinished=false
+//
+//
+// if (b4.innerHTML == imgArray[8]) && b10.innerHTML == imgArray[9]) {
+//     gamefinished=false
+//
+// if (b5.innerHTML == imgArray[10]) && b11.innerHTML == imgArray[11]) {
+//     gamefinished=false
 
 
-
-  if (imgArray[0] == imgArray[1]) {
-    //then the cards will remain
-  }
-  else if (imgArray[0] != imgArray[1])
-  { //then the cards will flip
-  }
-// }
-// }
 
 // SHUFFLE SORT
 // function shuffle() {
