@@ -1,34 +1,34 @@
 var imgArray = ['AA.jpg', 'AA.jpg', 'BB.jpg', 'BB.jpg', 'CC.jpg', 'CC.jpg', 'DD.jpg', 'DD.jpg', 'EE.jpg', 'EE.jpg', 'FF.jpg', 'FF.jpg'];
-var gamefinished = false;
-
-// document.getElementById("cell-1-1").onclick = click;
-// document.getElementById("cell-1-2").onclick = click;
-// document.getElementById("cell-1-3").onclick = click;
-// document.getElementById("cell-1-4").onclick = click;
-// document.getElementById("cell-2-1").onclick = click;
-// document.getElementById("cell-2-2").onclick = click;
-// document.getElementById("cell-2-3").onclick = click;
-// document.getElementById("cell-2-4").onclick = click;
-// document.getElementById("cell-3-1").onclick = click;
-// document.getElementById("cell-3-2").onclick = click;
-// document.getElementById("apple").onclick = click;
-// document.getElementById("cell-3-4").onclick = click;
-
 var numChosenCards = 0
 var tempArray = []
+var tempCardArray = []
+
+function addImages() {
+  for(var i = 0 ; i < imgArray.length; i++) {
+    // looping through image array to append specific image
+    var currentDiv = $('div.back')[i]
+    var img = imgArray[Math.floor(Math.random() * imgArray.length)]
+    $(currentDiv).prepend('<img src="img/' + img + ' "/>')
+
+    // getting first alphabet of image file to get ID for <div class='card'>
+    var currentID = img.split('')[0]
+    var currentParentDiv = $('.card')[i]
+    $(currentParentDiv).attr('id', currentID)
+  }
+}
+  addImages()
+
+// var card = $('div.back')[i]
+// var img = AA.jpg
+// $(.card).prepend('<img src="img/' + imgArray[imgArray[Math.floor(Math.random() * imgArray.length)] + ' "/>')
+
+// $("#AA.jpg").prepend('<img src="img/' + )
+
+
 
 function click() {
   var index = this.id
   console.log(index)
-
-//   for (var i = 0; i < imgArray.length; i++) {
-//     if (imgArray[i] === index) {
-//       tempArray.push(imgArray[i]);
-//     }
-//   }
-// }
-
-
 
   if (numChosenCards == 0) {
     //The first click will be the first image chosen
@@ -43,90 +43,56 @@ function click() {
 }
 
 function checkIfMatch() {
-  tempArray = tempArray.sort()
-  tempArray[1] = tempArray[1].split('')[0]
+  // tempArray = tempArray.sort()
+
+  // tempArray[1] = tempArray[1].split('')[0]
+  console.log(tempArray);
 
   if (tempArray[0] === tempArray[1]) {
     console.log('match')
+    console.log(tempCardArray);
 
-    // don't flip the card back
-    // points++
+  // don't flip the card back
+  for (var card = 0; card < tempCardArray.length; card++){
+    $(tempCardArray[card]).unbind();
+    }
+
+  // points++
   } else {
     console.log('not a match');
     // execute function to flip card back
-
+    console.log(tempCardArray);
     $("#" + tempArray[0]).flip(false)
-    $("#" + tempArray[1] + tempArray[1]).flip(false)
+    $("#" + tempArray[1]).flip(false)
+    // $("#" + tempArray[1] + tempArray[1]).flip(false)
   }
 }
 
 
-
 $("div.card").click(function() {
   tempArray.push(this.id)
+  tempCardArray.push(this)
   if (tempArray.length < 2) {
 
   } else if (tempArray.length === 2) {
-    checkIfMatch()
-    tempArray = []
+    setTimeout(function() {
+      checkIfMatch()
+      tempArray = []
+      tempCardArray = []
+    }, 1000)
   }
 
   console.log(tempArray);
 })
 
-// function checkWin() {
-// var b0 = document.getElementById("cell-1-1");
-// var b1 = document.getElementById("cell-1-2");
-// var b2 = document.getElementById("cell-1-3");
-// var b3 = document.getElementById("cell-1-4");
-// var b4 = document.getElementById("cell-2-1");
-// var b5 = document.getElementById("cell-2-2");
-// var b6 = document.getElementById("cell-2-3");
-// var b7 = document.getElementById("cell-2-4");
-// var b8 = document.getElementById("cell-3-1");
-// var b9 = document.getElementById("cell-3-2");
-// var b10 = document.getElementById("cell-3-3");
-// var b11 = document.getElementById("cell-3-4");
-//
-// if (b0.innerHTML == imgArray[0]) && b6.innerHTML == imgArray[1]) {
-//   gamefinished=false
-// // } else if
-//
-// if (b1.innerHTML == imgArray[2]) && b7.innerHTML == imgArray[3]) {
-//   gamefinished=false
-//
-//
-// if (b2.innerHTML == imgArray[4]) && b8.innerHTML == imgArray[5]) {
-//     gamefinished=false
-//
-//
-// if (b3.innerHTML == imgArray[6]) && b9.innerHTML == imgArray[7]) {
-//     gamefinished=false
-//
-//
-// if (b4.innerHTML == imgArray[8]) && b10.innerHTML == imgArray[9]) {
-//     gamefinished=false
-//
-// if (b5.innerHTML == imgArray[10]) && b11.innerHTML == imgArray[11]) {
-//     gamefinished=false
-
-
-
-// SHUFFLE SORT
-// function shuffle() {
-//   imgArray.sort(function(){return 0.5 - Math.random()});
-// }
-
-// function shuffle() {
-//   if (Math.random() < .5) {
-//     return -1;
-//   } else {
-//     return 1;
-//   }
-// };
-// console.log("Random sort:", imgArray);
-//
-
+// CARD SHUFFLER
+var shuffle = function(array) {
+  var shuffledPages = []
+  while(imgArray.length) {
+    shuffle.push(array.splice(Math.floor(array.length*Math.random()),1));
+  }
+  return shuffle
+}
 
 
 // function control() {
@@ -170,6 +136,13 @@ $("div.card").click(function() {
 //
 // }
 // document.getElementById('memoryboard')
+
+//   for (var i = 0; i < imgArray.length; i++) {
+//     if (imgArray[i] === index) {
+//       tempArray.push(imgArray[i]);
+//     }
+//   }
+// }
 
 
 function count() {

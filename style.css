@@ -1,7 +1,6 @@
 body {
   background-image: url("img/shopkin-background.jpg");
   background-size: cover;
-
 }
 
 p {
@@ -12,35 +11,19 @@ p {
   color: fuchsia;
 }
 
-.container {
-  margin: 0 auto;
-  width: 520px;
-  height: 410px;
-  background-color: orange;
-}
-
-.cards {
+th, td {
+  border: 1px solid fuchsia;
   width: 120px;
   height: 120px;
-  display: inline-block;
-  margin: 5px 0 0 5px ;
 }
 
-
-/*th, td {
-    border: 1px solid fuchsia;
-    width: 120px;
-    height: 120px;
-}*/
-
-/*table {
-    border: 3px ridge fuchsia;
-    margin: 0 auto;
+table {
+  border: 3px ridge fuchsia;
+  margin: 0 auto;
 }
 
 td {
   background-size: cover;
-  /*visibility: hidden;*/
 }
 
 /* resize image to fit div*/
@@ -48,18 +31,6 @@ img {
   width: 120px;
   height: 120px;
 }
-
-/* entire container, keeps perspective */
-/*.flip-container:hover .flipper, .flip-container.hover .flipper, .flip-container.flip .flipper {
-	transform: rotateY(180deg);
-}*/
-/*
-
-.name {
-  background-color: grey;
-  position: absolute;
-  height: 40%;
-}*/
 
 /*css for jquery flip */
 div {
@@ -73,5 +44,8 @@ div.front {
 }
 
 div.back {
+  background-size: cover;
+}
 
-}*/
+.button {
+}
