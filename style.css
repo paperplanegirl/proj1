@@ -1,6 +1,7 @@
 body {
   background-image: url("img/shopkin-background.jpg");
-  background-size: cover;
+  background-size: contain;
+  text-align: center;
 }
 
 p {
@@ -47,5 +48,12 @@ div.back {
   background-size: cover;
 }
 
-.button {
+button {
+  background-color: lightblue;
+  width: 120px;
+  height: 25px;
+}
+
+#hms {
+  text-align: center;
 }
