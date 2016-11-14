@@ -3,7 +3,6 @@ var numChosenCards = 0
 var tempArray = []
 var tempCardArray = []
 
-
 function addImages () {
   // shuffle(imgArray);
   for (var i = 0; i < imgArray.length; i++) {
@@ -16,6 +15,16 @@ function addImages () {
 
 addImages()
 
+function addEventListeners () {
+  var cards = $('div.card');
+  for (var i = 0; i < cards.length; i++) {
+    $(cards[i]).on('click', main);
+  }
+}
+
+addEventListeners()
+
+
 // CODE THAT RANDOMISED THE PICTURES
 // function addImages() {
 //   for(var i = 0 ; i < imgArray.length; i++) {
@@ -23,6 +32,7 @@ addImages()
 //     var currentDiv = $('div.back')[i]
 //     var img = imgArray[Math.floor(Math.random() * imgArray.length)]
 //     $(currentDiv).prepend('<img src="img/' + img + ' "/>')
+
 
 function checkIfMatch () {
   tempArray = tempArray.sort()
@@ -34,10 +44,12 @@ function checkIfMatch () {
     console.log('match')
     console.log(tempCardArray)
 
-    // don't flip the card back
-    for (var card = 0; card < tempCardArray.length; card++) {
-      $(tempCardArray[card]).off('click', main);
-    }
+
+  // don't flip the matched card back
+  for (var card = 0; card < tempCardArray.length; card++) {
+    $(tempCardArray[card]).removeClass('.flip')
+  }
+
 
   // points++
   } else {
@@ -50,16 +62,14 @@ function checkIfMatch () {
   }
 }
 
-var cards = $('div.card');
-for (var i = 0; i < cards.length; i++) {
-  $(cards[i]).on('click', main);
-}
+
 
 function main() {
   tempArray.push(this.id)
   tempCardArray.push(this)
-  if (tempArray.length < 2) {
-  } else if (tempArray.length === 2) {
+  console.log("temp array is", tempArray);
+  console.log("temp card array is", tempCardArray);
+  if (tempArray.length === 2) {
     setTimeout(function () {
       checkIfMatch()
       tempArray = []
@@ -72,8 +82,15 @@ function reset() {
   var cards = $('div.card');
   for (var i = 0; i < cards.length; i ++){
     $(cards[i]).flip(false);
-    $(cards[i]).on('click', main);
+    console.log('testing');
   }
+    $(cards).off('click', main);
+    $(cards).removeClass('.flip');
+    console.log('hello');
+    {
+    $(cards).on('click', main);
+    $(cards).addClass('.flip');
+    }
 }
 
 
