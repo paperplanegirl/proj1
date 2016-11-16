@@ -9,14 +9,19 @@
     <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
   </head>
   <body>
-    <p>Shopkins Memory Game</p>
+    <h1 id="messageBoard">Shopkins Memory Game</h1>
+    <div id="messageBox">
+    <div id="status">&nbsp;</div>
+    <div id="time"></div>
+    <button type="button" value="Reset" onclick="reset()">NEW GAME</button>
+  </div>
 
   <table>
     <tr class="row">
+
       <td id="cell-1-1">
         <div class="card" id="a">
-          <div class="front">
-            </div>
+          <div class="front"></div>
           <div class="back">
             <!-- <img src="img/AA.jpg"> -->
           </div>
@@ -130,9 +135,8 @@
 
 <div id="hms">00:00:60</div>
 
-<button type="button" value="Reset" onclick="reset()">NEW GAME</button>
 
   </body>
-  <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript" src="script.js" defer></script>
 
 </html>
